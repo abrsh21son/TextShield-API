@@ -1,4 +1,4 @@
-"""Toxicity analysis via external service or local mock scorer."""
+"""Toxicity analysis service: calls external ML model or local mock scorer."""
 
 from __future__ import annotations
 
@@ -64,3 +64,4 @@ def analyze_text(text: str) -> dict:
         "toxicity_score": score,
         "is_profane": score >= 70,
     }
+
