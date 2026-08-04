@@ -5,7 +5,7 @@ from services.analyzer import analyze_text
 from services.usage import record_analysis
 from utility.database.main import get_session
 
-analyze_bp = Blueprint("analyze", __name__)
+analyze_bp = Blueprint("analyze", __name__)  # registered in app.py
 
 
 @analyze_bp.route("/api/demo-analyze", methods=["POST"])
@@ -57,3 +57,4 @@ def analyze():
         return jsonify({"success": False, "error": str(exc)}), 500
     finally:
         db.close()
+
