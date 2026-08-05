@@ -287,7 +287,7 @@ def get_usage_stats():
         db.close()
 
 
-@app.route("/logout")
+@app.route("/logout")  # clears session
 def logout():
     session.clear()
     flash("You have been successfully logged out.", "success")
@@ -296,6 +296,7 @@ def logout():
 
 if __name__ == "__main__":
     app.run()
+
 
 
 
