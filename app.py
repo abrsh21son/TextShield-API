@@ -247,7 +247,7 @@ def admin_login():
     return render_template("Admin/admin-login.html")
 
 
-@app.route("/api/usage-stats", methods=["GET"])
+@app.route("/api/usage-stats", methods=["GET"])  # returns chart data + credits
 @login_required
 def get_usage_stats():
     user_id = session.get("user_id")
@@ -296,6 +296,7 @@ def logout():
 
 if __name__ == "__main__":
     app.run()
+
 
 
 
