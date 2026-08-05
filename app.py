@@ -30,7 +30,7 @@ def admin_required(f):  # protects admin-only routes
     return decorated_function
 
 
-def login_required(f):
+def login_required(f):  # protects user-only routes
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if "user_id" not in session:
@@ -296,4 +296,5 @@ def logout():
 
 if __name__ == "__main__":
     app.run()
+
 
