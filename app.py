@@ -19,7 +19,7 @@ app.register_blueprint(analyze_bp)
 init_db()
 
 
-def admin_required(f):
+def admin_required(f):  # protects admin-only routes
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if session.get("role") != "admin":
@@ -296,3 +296,4 @@ def logout():
 
 if __name__ == "__main__":
     app.run()
+
