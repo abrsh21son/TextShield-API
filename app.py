@@ -41,7 +41,7 @@ def login_required(f):  # protects user-only routes
     return decorated_function
 
 
-@app.route("/")
+@app.route("/")  # landing page
 def home():
     return render_template("User/landing-page.html")
 
@@ -296,5 +296,6 @@ def logout():
 
 if __name__ == "__main__":
     app.run()
+
 
 
