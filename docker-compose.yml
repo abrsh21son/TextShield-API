@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: safe_text
+      POSTGRES_PASSWORD: safe_text
+      POSTGRES_DB: safe_text
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DATABASE_URL: postgresql://safe_text:safe_text@db:5432/safe_text
+      FLASK_SECRET_KEY: local-dev-secret
+      ANALYZER_URL: mock
+    depends_on:
+      - db
+
+volumes:
+  pgdata:
