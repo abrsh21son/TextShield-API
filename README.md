@@ -15,3 +15,7 @@ pip install -r requirements.txt
 cp .env.example .env
 python app.py
 ```
+
+
+## Deployment
+Deploy to Render using render.yaml. Docker support is included via Dockerfile and docker-compose.yml.
