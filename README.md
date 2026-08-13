@@ -1,3 +1,5 @@
+![CI](https://github.com/abrsh21son/TextShield-API/actions/workflows/ci.yml/badge.svg)
+
 # TextShield API
 
 A Flask-based REST API for text toxicity analysis.
@@ -19,3 +21,4 @@ python app.py
 
 ## Deployment
 Deploy to Render using render.yaml. Docker support is included via Dockerfile and docker-compose.yml.
+
