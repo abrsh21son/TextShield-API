@@ -1,4 +1,4 @@
-"""Persist analysis requests and usage logs."""
+"""Persist analysis results and usage logs to the database."""
 
 from __future__ import annotations
 
@@ -49,3 +49,4 @@ def record_analysis(
     db.commit()
     db.refresh(request_row)
     return request_row
+
