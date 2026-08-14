@@ -1,4 +1,4 @@
-# utility/database/model.py
+# utility/database/model.py -- SQLModel ORM table definitions
 import uuid
 from typing import Optional, List
 from datetime import datetime, timezone
@@ -75,3 +75,4 @@ class UsageLog(SQLModel, table=True):
     request: Optional[TextAnalysisRequest] = Relationship(back_populates="usagelogs")
 
     userid: Optional[uuid.UUID] = Field(default=None, sa_column=Column("userId", PGUUID(as_uuid=True), ForeignKey("users.id")))
+
