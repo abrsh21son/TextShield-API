@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import config
 
+# Fallback keywords used when ANALYZER_URL='mock'
 TOXIC_KEYWORDS = ("hate", "kill", "stupid", "idiot", "damn", "fuck", "shit")
 
 
@@ -64,4 +65,5 @@ def analyze_text(text: str) -> dict:
         "toxicity_score": score,
         "is_profane": score >= 70,
     }
+
 
