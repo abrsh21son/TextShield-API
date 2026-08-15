@@ -1,7 +1,14 @@
 :root {
-    --primary: #3b82f6;
-    --secondary: #f59e0b;
-    --accent: #8b5cf6;
+    --primary: #d4a017;
+    --secondary: #f5c842;
+    --accent: #b8860b;
+    --gold: #d4a017;
+    --gold-light: #f5c842;
+    --gold-dark: #8b6914;
+    --bg-base: #000000;
+    --bg-surface: #0d0d0d;
+    --bg-card: #111111;
+    --border-gold: rgba(212, 160, 23, 0.3);
 }
 
 * {
@@ -12,8 +19,8 @@
 
 body {
     font-family: "Inter", sans-serif;
-    background-color: #0f172a;
-    color: white;
+    background-color: var(--bg-base);
+    color: #f0e6c8;
     overflow-x: hidden;
 }
 
@@ -24,7 +31,7 @@ body {
     left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(15, 23, 42, 0.98);
+    background: rgba(0, 0, 0, 0.98);
     backdrop-filter: blur(10px);
     z-index: 100;
     flex-direction: column;
@@ -46,13 +53,13 @@ body {
     display: block;
     font-size: 1.5rem;
     margin: 1rem 0;
-    color: white;
+    color: #f0e6c8;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .mobile-menu a:hover {
-    color: #f59e0b;
+    color: var(--gold-light);
 }
 
 .hamburger {
@@ -65,7 +72,7 @@ body {
 .hamburger span {
     width: 25px;
     height: 3px;
-    background: white;
+    background: var(--gold);
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -84,11 +91,14 @@ body {
 
 .feature-card, .pricing-card {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid var(--border-gold);
+    background: var(--bg-card);
 }
 
 .feature-card:hover, .pricing-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 20px 40px rgba(212, 160, 23, 0.15);
+    border-color: var(--gold);
 }
 
 .floating {
@@ -102,24 +112,26 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(90deg, #f59e0b, #ef4444, #8b5cf6);
+    background: linear-gradient(90deg, var(--gold-light), #e8a020, var(--gold-dark));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
 }
 
 .glass-effect {
-    background: rgba(15, 23, 42, 0.6);
+    background: rgba(13, 13, 13, 0.7);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--border-gold);
 }
 
 .progress-fill {
     transition: width 1.5s ease-in-out;
+    background: linear-gradient(90deg, var(--gold-dark), var(--gold-light));
 }
 
 .scroll-indicator {
     animation: bounce 2s infinite;
+    color: var(--gold);
 }
 
 @keyframes bounce {
@@ -133,6 +145,47 @@ body {
         transform: translateY(-5px);
     }
 }
+
+/* Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold));
+    color: #000;
+    font-weight: 700;
+    border: none;
+    box-shadow: 0 4px 20px rgba(212, 160, 23, 0.35);
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    box-shadow: 0 6px 28px rgba(245, 200, 66, 0.45);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid var(--gold);
+    color: var(--gold-light);
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+    background: rgba(212, 160, 23, 0.1);
+    border-color: var(--gold-light);
+}
+
+/* Navbar */
+nav {
+    border-bottom: 1px solid var(--border-gold);
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(12px);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold); }
 
 @media (max-width: 768px) {
     .hamburger {
