@@ -22,3 +22,13 @@ python app.py
 ## Deployment
 Deploy to Render using render.yaml. Docker support is included via Dockerfile and docker-compose.yml.
 
+
+
+## API Usage
+
+```bash
+curl -X POST https://your-app.onrender.com/api/analyze \
+  -H 'Content-Type: application/json' \
+  -H 'x-api-key: safe_yourkey' \
+  -d '{"text": "Hello world"}'
+```
