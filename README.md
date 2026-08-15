@@ -36,3 +36,7 @@ curl -X POST https://your-app.onrender.com/api/analyze \
 
 ## Environment Variables
 Copy .env.example to .env and fill in your values before running locally.
+
+
+---
+_TextShield API v1.0.0 - August 2026_
