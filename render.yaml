@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: safe-text-api
+    name: textshield-api
     runtime: python
     plan: free
     buildCommand: pip install -r requirements.txt

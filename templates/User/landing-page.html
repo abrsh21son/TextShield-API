@@ -1,213 +1,199 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Safe-Text-API - Intelligent Toxic Comment Detection</title>
+    <title>TextShield API - Intelligent Toxic Content Detection</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Orbitron:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="static/css/landing-page.css" />
 </head>
 
-<body class="bg-slate-900 text-white font-inter overflow-x-hidden">
+<body>
     <!-- Navigation -->
-    <nav class="fixed top-0 w-full z-50 bg-slate-900/80 backdrop-blur-lg border-b border-slate-800">
+    <nav class="fixed top-0 w-full z-50" style="background:rgba(0,0,0,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(212,160,23,0.2);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-4">
             <div class="flex items-center justify-between">
                 <div class="flex items-center space-x-3">
-                    <i class="fas fa-shield-alt text-sky-400 text-2xl"></i>
-                    <span class="text-xl font-bold">Safe-Text-API</span>
+                    <i class="fas fa-shield-alt text-2xl" style="color:#d4a017;"></i>
+                    <span class="text-xl font-bold" style="color:#f5c842;font-family:'Orbitron',sans-serif;">TextShield API</span>
                 </div>
-                
-                <!-- Desktop Navigation -->
+
+                <!-- Desktop Nav -->
                 <div class="desktop-nav hidden md:flex items-center space-x-8">
-                    <a href="#home" class="hover:text-yellow-400 transition-colors">Home</a>
-                    <a href="#features" class="hover:text-yellow-400 transition-colors">Features</a>
-                    <a href="#demo" class="hover:text-yellow-400 transition-colors">Demo</a>
-                    <a href="#pricing" class="hover:text-yellow-400 transition-colors">Pricing</a>
+                    <a href="#home"     style="color:#f0e6c8;" class="hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="#features" style="color:#f0e6c8;" class="hover:text-yellow-400 transition-colors">Features</a>
+                    <a href="#demo"     style="color:#f0e6c8;" class="hover:text-yellow-400 transition-colors">Demo</a>
+                    <a href="#pricing"  style="color:#f0e6c8;" class="hover:text-yellow-400 transition-colors">Pricing</a>
                 </div>
-                
+
                 <div class="flex items-center space-x-4">
-                    <!-- Mobile Menu Button -->
-                    <div class="hamburger md:hidden">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    
-                    <!-- Desktop Auth Buttons -->
+                    <div class="hamburger md:hidden"><span></span><span></span><span></span></div>
                     <div class="hidden md:flex items-center space-x-4">
-                        <button class="text-slate-300 hover:text-white transition-colors">
-                            <a href="{{ url_for('user_login') }}">Login</a>
-                        </button>
-                        <button class="bg-blue-600 hover:bg-blue-700 px-6 py-2 rounded-full transition-all transform hover:scale-105">
-                            <a href="{{ url_for('user_signup') }}"> Get Started</a>
-                        </button>
+                        <a href="{{ url_for('user_login') }}" style="color:#c9a84c;" class="hover:text-yellow-300 transition-colors font-medium">Login</a>
+                        <a href="{{ url_for('user_signup') }}" class="px-6 py-2 rounded-full font-semibold transition-all hover:scale-105" style="background:linear-gradient(135deg,#8b6914,#d4a017);color:#000;">Get Started</a>
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <!-- Mobile Menu -->
         <div class="mobile-menu">
-            <a href="#home" class="mobile-nav-link">Home</a>
+            <a href="#home"     class="mobile-nav-link">Home</a>
             <a href="#features" class="mobile-nav-link">Features</a>
-            <a href="#demo" class="mobile-nav-link">Demo</a>
-            <a href="#pricing" class="mobile-nav-link">Pricing</a>
+            <a href="#demo"     class="mobile-nav-link">Demo</a>
+            <a href="#pricing"  class="mobile-nav-link">Pricing</a>
             <div class="mt-8 flex flex-col space-y-4">
-                <a href="{{ url_for('user_login') }}" class="px-6 py-3 text-white border border-white rounded-full">Login</a>
-                <a href="{{ url_for('user_signup') }}" class="px-6 py-3 bg-yellow-500 text-slate-900 rounded-full font-semibold">Get Started</a>
+                <a href="{{ url_for('user_login') }}"  class="px-6 py-3 rounded-full text-center" style="border:1px solid #d4a017;color:#f5c842;">Login</a>
+                <a href="{{ url_for('user_signup') }}" class="px-6 py-3 rounded-full text-center font-semibold" style="background:#d4a017;color:#000;">Get Started</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-r from-black via-slate-800 to-slate-900 pt-16">
+    <!-- Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-16" style="background:linear-gradient(135deg,#000000 0%,#0d0b04 60%,#1a1200 100%);">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 py-20 md:py-32 grid hero-grid md:grid-cols-2 gap-12 items-center">
-            <!-- Left Side: Text Content -->
-            <div class="text-center md:text-left animate-fade-up">
-                <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-white">
-                    Empower Your Platform with 
-                    <span class="gradient-text block mt-2">
-                        Real-Time Toxicity Detection
-                    </span>
+            <div class="text-center md:text-left">
+                <div class="inline-flex items-center px-4 py-2 rounded-full text-sm font-medium mb-6" style="background:rgba(212,160,23,0.1);border:1px solid rgba(212,160,23,0.3);color:#f5c842;">
+                    <i class="fas fa-bolt mr-2"></i> AI-Powered Content Moderation
+                </div>
+                <h1 class="hero-title text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6" style="color:#f0e6c8;">
+                    Protect Your Platform with
+                    <span class="gradient-text block mt-2">Real-Time Toxicity Detection</span>
                 </h1>
-                <p class="text-lg text-slate-200 mb-8 max-w-xl mx-auto md:mx-0">
-                    SafeText API helps you detect and filter harmful content using cutting-edge AI — ensuring safer, respectful digital experiences.
+                <p class="text-lg mb-8 max-w-xl mx-auto md:mx-0" style="color:#a89060;">
+                    TextShield API detects and filters harmful content using cutting-edge AI — ensuring safer, more respectful digital experiences for your users.
                 </p>
                 <div class="hero-buttons flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="{{ url_for('user_signup') }}" class="bg-yellow-500 text-slate-900 px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:bg-yellow-400 transition-all get-started-btn flex items-center justify-center">
-                        <span>Get Started Free</span>
+                    <a href="{{ url_for('user_signup') }}" class="px-8 py-4 rounded-full text-lg font-semibold shadow-lg flex items-center justify-center transition-all hover:scale-105" style="background:linear-gradient(135deg,#8b6914,#d4a017);color:#000;">
+                        <i class="fas fa-rocket mr-2"></i> Get Started Free
                     </a>
-                    <a href="#demo" class="border border-yellow-500 text-yellow-500 px-8 py-4 rounded-full text-lg font-semibold hover:bg-yellow-500 hover:text-black transition-all flex items-center justify-center">
-                        <span>Try Demo</span>
+                    <a href="#demo" class="px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center transition-all" style="border:1px solid #d4a017;color:#f5c842;">
+                        <i class="fas fa-play mr-2"></i> Try Demo
                     </a>
                 </div>
+                <div class="mt-8 flex items-center gap-6 justify-center md:justify-start">
+                    <div class="text-center">
+                        <div class="text-2xl font-bold" style="color:#f5c842;">99.5%</div>
+                        <div class="text-xs" style="color:#a89060;">Accuracy</div>
+                    </div>
+                    <div style="width:1px;height:40px;background:rgba(212,160,23,0.3);"></div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold" style="color:#f5c842;">&lt;100ms</div>
+                        <div class="text-xs" style="color:#a89060;">Response Time</div>
+                    </div>
+                    <div style="width:1px;height:40px;background:rgba(212,160,23,0.3);"></div>
+                    <div class="text-center">
+                        <div class="text-2xl font-bold" style="color:#f5c842;">REST</div>
+                        <div class="text-xs" style="color:#a89060;">Simple API</div>
+                    </div>
+                </div>
             </div>
-
-            <!-- Right Side: Animated Image -->
-            <div class="flex justify-center animate-fade-in order-first md:order-last">
-                <img src="static/Image/landing-image.png" alt="SafeText API Illustration" class="w-full max-w-md lg:max-w-lg rounded-lg shadow-2xl floating" />
+            <div class="flex justify-center order-first md:order-last">
+                <img src="static/Image/landing-image.png" alt="TextShield API Illustration" class="w-full max-w-md lg:max-w-lg rounded-2xl shadow-2xl floating" style="border:1px solid rgba(212,160,23,0.2);" />
             </div>
         </div>
-
-        <!-- Scroll Indicator -->
         <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator">
-            <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-white/50 rounded-full mt-2"></div>
+            <div class="w-6 h-10 rounded-full flex justify-center" style="border:2px solid rgba(212,160,23,0.4);">
+                <div class="w-1 h-3 rounded-full mt-2" style="background:rgba(212,160,23,0.6);"></div>
             </div>
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="py-16 md:py-20 bg-slate-800">
+    <!-- Features -->
+    <section id="features" class="py-16 md:py-20" style="background:#0d0d0d;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Powerful Features</h2>
-                <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto">
-                    Our AI-powered system provides comprehensive protection for your platform
-                </p>
+                <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color:#f0e6c8;">Powerful Features</h2>
+                <p class="text-lg md:text-xl max-w-3xl mx-auto" style="color:#a89060;">Comprehensive AI protection for your platform</p>
             </div>
-
             <div class="features-grid grid md:grid-cols-3 gap-6 md:gap-8">
-                <div class="feature-card glass-effect rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-yellow-400/50 transition-all">
-                    <div class="text-4xl mb-4 md:mb-6">⚡</div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-4">Real-time Detection</h3>
-                    <p class="text-slate-400 mb-6">
-                        Instant analysis and response with sub-second processing times
-                    </p>
-                    <div class="progress-bar bg-slate-700 rounded-full h-2 overflow-hidden">
-                        <div class="progress-fill bg-yellow-400 h-full rounded-full" data-width="95"></div>
+                <!-- Card 1 -->
+                <div class="feature-card rounded-2xl p-6 md:p-8" style="background:#111111;border:1px solid rgba(212,160,23,0.2);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(212,160,23,0.15);">
+                        <i class="fas fa-bolt text-xl" style="color:#f5c842;"></i>
                     </div>
-                    <span class="text-sm text-slate-400 mt-2 block">95% Faster</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3" style="color:#f0e6c8;">Real-time Detection</h3>
+                    <p class="mb-6" style="color:#a89060;">Instant analysis with sub-100ms response times for seamless integration.</p>
+                    <div class="rounded-full h-2 overflow-hidden" style="background:#1a1505;">
+                        <div class="progress-fill h-full rounded-full" data-width="95" style="width:0%;background:linear-gradient(90deg,#8b6914,#f5c842);"></div>
+                    </div>
+                    <span class="text-sm mt-2 block" style="color:#a89060;">95% Faster than alternatives</span>
                 </div>
-
-                <div class="feature-card glass-effect rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-blue-400/50 transition-all">
-                    <div class="text-4xl mb-4 md:mb-6">🎯</div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-4">High Accuracy</h3>
-                    <p class="text-slate-400 mb-6">
-                        99.5% precision rate with advanced machine learning models
-                    </p>
-                    <div class="progress-bar bg-slate-700 rounded-full h-2 overflow-hidden">
-                        <div class="progress-fill bg-blue-400 h-full rounded-full" data-width="99"></div>
+                <!-- Card 2 -->
+                <div class="feature-card rounded-2xl p-6 md:p-8" style="background:#111111;border:1px solid rgba(212,160,23,0.2);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(212,160,23,0.15);">
+                        <i class="fas fa-bullseye text-xl" style="color:#f5c842;"></i>
                     </div>
-                    <span class="text-sm text-slate-400 mt-2 block">99.5% Accuracy</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3" style="color:#f0e6c8;">High Accuracy</h3>
+                    <p class="mb-6" style="color:#a89060;">99.5% precision with advanced machine learning models trained on diverse datasets.</p>
+                    <div class="rounded-full h-2 overflow-hidden" style="background:#1a1505;">
+                        <div class="progress-fill h-full rounded-full" data-width="99" style="width:0%;background:linear-gradient(90deg,#8b6914,#f5c842);"></div>
+                    </div>
+                    <span class="text-sm mt-2 block" style="color:#a89060;">99.5% Accuracy rate</span>
                 </div>
-
-                <div class="feature-card glass-effect rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-purple-400/50 transition-all">
-                    <div class="text-4xl mb-4 md:mb-6">🔧</div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-4">Easy Integration</h3>
-                    <p class="text-slate-400 mb-6">
-                        Simple REST API with comprehensive documentation
-                    </p>
-                    <div class="progress-bar bg-slate-700 rounded-full h-2 overflow-hidden">
-                        <div class="progress-fill bg-purple-400 h-full rounded-full" data-width="100"></div>
+                <!-- Card 3 -->
+                <div class="feature-card rounded-2xl p-6 md:p-8" style="background:#111111;border:1px solid rgba(212,160,23,0.2);">
+                    <div class="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style="background:rgba(212,160,23,0.15);">
+                        <i class="fas fa-plug text-xl" style="color:#f5c842;"></i>
                     </div>
-                    <span class="text-sm text-slate-400 mt-2 block">5 min Setup</span>
+                    <h3 class="text-xl md:text-2xl font-bold mb-3" style="color:#f0e6c8;">Easy Integration</h3>
+                    <p class="mb-6" style="color:#a89060;">Simple REST API with a single endpoint. Up and running in under 5 minutes.</p>
+                    <div class="rounded-full h-2 overflow-hidden" style="background:#1a1505;">
+                        <div class="progress-fill h-full rounded-full" data-width="100" style="width:0%;background:linear-gradient(90deg,#8b6914,#f5c842);"></div>
+                    </div>
+                    <span class="text-sm mt-2 block" style="color:#a89060;">5 min setup</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Interactive Demo Section -->
-    <section id="demo" class="py-16 md:py-20 bg-slate-900 relative">
+    <!-- Demo -->
+    <section id="demo" class="py-16 md:py-20 relative" style="background:#000000;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Try it Live</h2>
-                <p class="text-lg md:text-xl text-slate-400">
-                    Test our toxic comment detection in real-time
-                </p>
+                <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color:#f0e6c8;">Try It Live</h2>
+                <p class="text-lg md:text-xl" style="color:#a89060;">Test toxicity detection in real-time — no sign-up needed</p>
             </div>
-
             <div class="max-w-4xl mx-auto">
-                <div class="demo-container glass-effect rounded-2xl p-6 md:p-8 border border-slate-700">
+                <div class="demo-container rounded-2xl p-6 md:p-8" style="background:#0d0d0d;border:1px solid rgba(212,160,23,0.25);">
                     <div class="mb-6">
-                        <label class="block text-sm font-medium mb-2">Enter text to analyze:</label>
-                        <textarea
-                            id="demo-input"
-                            class="w-full h-32 bg-slate-700 border border-slate-600 rounded-lg p-4 text-white placeholder-slate-400 resize-none focus:border-yellow-400 focus:ring-1 focus:ring-yellow-400 transition-colors"
-                            placeholder="Type your message here..."
-                        ></textarea>
+                        <label class="block text-sm font-medium mb-2" style="color:#c9a84c;">Enter text to analyze:</label>
+                        <textarea id="demo-input" class="w-full h-32 rounded-lg p-4 resize-none focus:outline-none transition-colors" placeholder="Type your message here..." style="background:#0a0a0a;border:1px solid rgba(212,160,23,0.25);color:#f0e6c8;"></textarea>
                     </div>
-
                     <div class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
-                        <button
-                            id="analyze-btn"
-                            class="bg-yellow-400 text-slate-900 px-8 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors w-full sm:w-auto"
-                        >
-                            Analyze Text
+                        <button id="analyze-btn" class="px-8 py-3 rounded-lg font-semibold transition-colors w-full sm:w-auto" style="background:#d4a017;color:#000;">
+                            <i class="fas fa-search mr-2"></i>Analyze Text
                         </button>
                         <div class="flex items-center space-x-4">
-                            <span class="text-sm text-slate-400">Processing time:</span>
-                            <span id="processing-time" class="text-yellow-400 font-mono">0.00s</span>
+                            <span class="text-sm" style="color:#a89060;">Processing time:</span>
+                            <span id="processing-time" class="font-mono" style="color:#f5c842;">0.00s</span>
                         </div>
                     </div>
-
                     <div id="demo-result" class="hidden">
-                        <div class="bg-slate-700 rounded-lg p-6">
+                        <div class="rounded-lg p-6" style="background:#111111;border:1px solid rgba(212,160,23,0.2);">
                             <div class="flex flex-col sm:flex-row items-center justify-between mb-4 gap-2">
-                                <span class="text-lg font-semibold">Analysis Result:</span>
+                                <span class="text-lg font-semibold" style="color:#f0e6c8;">Analysis Result:</span>
                                 <div id="result-status" class="px-3 py-1 rounded-full text-sm font-medium"></div>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div>
-                                    <span class="text-sm text-slate-400">Toxicity Score:</span>
+                                    <span class="text-sm" style="color:#a89060;">Toxicity Score:</span>
                                     <div class="mt-1">
-                                        <div class="bg-slate-600 rounded-full h-2 overflow-hidden">
+                                        <div class="rounded-full h-2 overflow-hidden" style="background:#1a1505;">
                                             <div id="toxicity-bar" class="h-full rounded-full transition-all duration-1000"></div>
                                         </div>
-                                        <span id="toxicity-score" class="text-sm font-mono mt-1 block"></span>
+                                        <span id="toxicity-score" class="text-sm font-mono mt-1 block" style="color:#f5c842;"></span>
                                     </div>
                                 </div>
                                 <div>
-                                    <span class="text-sm text-slate-400">Confidence:</span>
+                                    <span class="text-sm" style="color:#a89060;">Confidence:</span>
                                     <div class="mt-1">
-                                        <div class="bg-slate-600 rounded-full h-2 overflow-hidden">
-                                            <div id="confidence-bar" class="bg-blue-400 h-full rounded-full transition-all duration-1000"></div>
+                                        <div class="rounded-full h-2 overflow-hidden" style="background:#1a1505;">
+                                            <div id="confidence-bar" class="h-full rounded-full transition-all duration-1000" style="background:#d4a017;"></div>
                                         </div>
-                                        <span id="confidence-score" class="text-sm font-mono mt-1 block"></span>
+                                        <span id="confidence-score" class="text-sm font-mono mt-1 block" style="color:#f5c842;"></span>
                                     </div>
                                 </div>
                             </div>
@@ -218,154 +204,95 @@
         </div>
     </section>
 
-    <!-- Pricing Section -->
-    <section id="pricing" class="py-16 md:py-20 bg-slate-800">
+    <!-- Pricing -->
+    <section id="pricing" class="py-16 md:py-20" style="background:#0d0d0d;">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="text-center mb-12 md:mb-16">
-                <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-6">Simple Pricing</h2>
-                <p class="text-lg md:text-xl text-slate-400">
-                    Choose the plan that fits your needs
-                </p>
+                <h2 class="section-title text-3xl md:text-4xl lg:text-5xl font-bold mb-4" style="color:#f0e6c8;">Simple Pricing</h2>
+                <p class="text-lg md:text-xl" style="color:#a89060;">Choose the plan that fits your needs</p>
             </div>
-
             <div class="pricing-grid grid md:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto">
-                <div class="pricing-card glass-effect rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-yellow-400/50 transition-all">
-                    <h3 class="text-xl md:text-2xl font-bold mb-4">Starter</h3>
-                    <div class="text-3xl md:text-4xl font-bold mb-6">Free</div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> 1,000 requests/month
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Basic documentation
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Email support
-                        </li>
+                <!-- Starter -->
+                <div class="pricing-card rounded-2xl p-6 md:p-8" style="background:#111111;border:1px solid rgba(212,160,23,0.2);">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" style="color:#f0e6c8;">Starter</h3>
+                    <div class="text-3xl md:text-4xl font-bold mb-1" style="color:#f5c842;">Free</div>
+                    <p class="text-sm mb-6" style="color:#a89060;">Perfect for getting started</p>
+                    <ul class="space-y-3 mb-8" style="color:#c9a84c;">
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> 100 credits included</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> REST API access</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> Basic dashboard</li>
                     </ul>
-                    <button class="w-full border border-slate-600 text-white py-3 rounded-lg hover:border-yellow-400 transition-colors">
-                        Get Started
-                    </button>
+                    <a href="{{ url_for('user_signup') }}" class="block w-full py-3 rounded-lg text-center font-medium transition-colors" style="border:1px solid rgba(212,160,23,0.4);color:#f5c842;">Get Started</a>
                 </div>
-
-                <div class="pricing-card bg-gradient-to-b from-yellow-400/10 to-transparent border-2 border-yellow-400 rounded-2xl p-6 md:p-8 transform md:scale-105 relative z-10">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-yellow-400 text-slate-900 px-4 py-1 rounded-full text-sm font-semibold">
-                        Most Popular
-                    </div>
-                    <h3 class="text-xl md:text-2xl font-bold mb-4">Pro</h3>
-                    <div class="text-3xl md:text-4xl font-bold mb-6">
-                        $49<span class="text-lg text-slate-400">/month</span>
-                    </div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> 100,000 requests/month
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Advanced analytics
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Priority support
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Custom models
-                        </li>
+                <!-- Pro (featured) -->
+                <div class="pricing-card rounded-2xl p-6 md:p-8 transform md:scale-105 relative" style="background:#111111;border:2px solid #d4a017;box-shadow:0 0 30px rgba(212,160,23,0.15);">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 px-4 py-1 rounded-full text-sm font-semibold" style="background:#d4a017;color:#000;">Most Popular</div>
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" style="color:#f0e6c8;">Pro</h3>
+                    <div class="text-3xl md:text-4xl font-bold mb-1" style="color:#f5c842;">$49<span class="text-lg" style="color:#a89060;">/month</span></div>
+                    <p class="text-sm mb-6" style="color:#a89060;">For growing platforms</p>
+                    <ul class="space-y-3 mb-8" style="color:#c9a84c;">
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> 100,000 requests/month</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> Advanced analytics</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> Priority support</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> Custom thresholds</li>
                     </ul>
-                    <button class="w-full bg-yellow-400 text-slate-900 py-3 rounded-lg font-semibold hover:bg-yellow-300 transition-colors">
-                        Start Free Trial
-                    </button>
+                    <a href="{{ url_for('user_signup') }}" class="block w-full py-3 rounded-lg text-center font-semibold transition-all hover:opacity-90" style="background:linear-gradient(135deg,#8b6914,#d4a017);color:#000;">Start Free Trial</a>
                 </div>
-
-                <div class="pricing-card glass-effect rounded-2xl p-6 md:p-8 border border-slate-700 hover:border-purple-400/50 transition-all">
-                    <h3 class="text-xl md:text-2xl font-bold mb-4">Enterprise</h3>
-                    <div class="text-3xl md:text-4xl font-bold mb-6">Custom</div>
-                    <ul class="space-y-3 mb-8">
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Unlimited requests
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> Dedicated support
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> On-premise deployment
-                        </li>
-                        <li class="flex items-center">
-                            <span class="text-green-400 mr-2">✓</span> SLA guarantee
-                        </li>
+                <!-- Enterprise -->
+                <div class="pricing-card rounded-2xl p-6 md:p-8" style="background:#111111;border:1px solid rgba(212,160,23,0.2);">
+                    <h3 class="text-xl md:text-2xl font-bold mb-2" style="color:#f0e6c8;">Enterprise</h3>
+                    <div class="text-3xl md:text-4xl font-bold mb-1" style="color:#f5c842;">Custom</div>
+                    <p class="text-sm mb-6" style="color:#a89060;">For large-scale operations</p>
+                    <ul class="space-y-3 mb-8" style="color:#c9a84c;">
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> Unlimited requests</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> Dedicated support</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> On-premise deployment</li>
+                        <li class="flex items-center"><i class="fas fa-check mr-2" style="color:#d4a017;"></i> SLA guarantee</li>
                     </ul>
-                    <button class="w-full border border-slate-600 text-white py-3 rounded-lg hover:border-purple-400 transition-colors">
-                        Contact Sales
-                    </button>
+                    <a href="#" class="block w-full py-3 rounded-lg text-center font-medium transition-colors" style="border:1px solid rgba(212,160,23,0.4);color:#f5c842;">Contact Sales</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 border-t border-slate-800 py-12">
+    <footer style="background:#000000;border-top:1px solid rgba(212,160,23,0.15);" class="py-12">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
             <div class="footer-grid grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-8 h-8 bg-yellow-400 rounded-lg flex items-center justify-center">
-                            🛡️
-                        </div>
-                        <span class="text-xl font-bold">Safe-Text-API</span>
+                        <i class="fas fa-shield-alt text-xl" style="color:#d4a017;"></i>
+                        <span class="text-xl font-bold" style="color:#f5c842;font-family:'Orbitron',sans-serif;">TextShield API</span>
                     </div>
-                    <p class="text-slate-400">
-                        Protecting platforms worldwide with intelligent content moderation.
-                    </p>
+                    <p style="color:#a89060;">Protecting platforms worldwide with intelligent content moderation.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Product</h4>
-                    <ul class="space-y-2 text-slate-400">
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Features</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Documentation</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">API Reference</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Status</a>
-                        </li>
+                    <h4 class="font-semibold mb-4" style="color:#f0e6c8;">Product</h4>
+                    <ul class="space-y-2" style="color:#a89060;">
+                        <li><a href="#features" class="hover:text-yellow-400 transition-colors">Features</a></li>
+                        <li><a href="#demo"     class="hover:text-yellow-400 transition-colors">Demo</a></li>
+                        <li><a href="#pricing"  class="hover:text-yellow-400 transition-colors">Pricing</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Company</h4>
-                    <ul class="space-y-2 text-slate-400">
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">About</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Blog</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Careers</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Contact</a>
-                        </li>
+                    <h4 class="font-semibold mb-4" style="color:#f0e6c8;">Account</h4>
+                    <ul class="space-y-2" style="color:#a89060;">
+                        <li><a href="{{ url_for('user_login') }}"  class="hover:text-yellow-400 transition-colors">Login</a></li>
+                        <li><a href="{{ url_for('user_signup') }}" class="hover:text-yellow-400 transition-colors">Sign Up</a></li>
+                        <li><a href="{{ url_for('admin_login') }}" class="hover:text-yellow-400 transition-colors">Admin</a></li>
                     </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4">Legal</h4>
-                    <ul class="space-y-2 text-slate-400">
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Privacy</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Terms</a>
-                        </li>
-                        <li>
-                            <a href="#" class="hover:text-white transition-colors">Security</a>
-                        </li>
+                    <h4 class="font-semibold mb-4" style="color:#f0e6c8;">Legal</h4>
+                    <ul class="space-y-2" style="color:#a89060;">
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Privacy</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Terms</a></li>
+                        <li><a href="#" class="hover:text-yellow-400 transition-colors">Security</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="border-t border-slate-800 mt-8 pt-8 text-center text-slate-400">
-                <p>&copy; 2025 Ethronics. All rights reserved.</p>
+            <div class="mt-8 pt-8 text-center" style="border-top:1px solid rgba(212,160,23,0.1);color:#a89060;">
+                <p>&copy; 2026 TextShield API. All rights reserved.</p>
             </div>
         </div>
     </footer>
