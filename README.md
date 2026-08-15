@@ -32,3 +32,7 @@ curl -X POST https://your-app.onrender.com/api/analyze \
   -H 'x-api-key: safe_yourkey' \
   -d '{"text": "Hello world"}'
 ```
+
+
+## Environment Variables
+Copy .env.example to .env and fill in your values before running locally.
